@@ -194,6 +194,17 @@ In the original alogrithm, the chunks keys are always sorted. To maintain this p
 
 We observe that on a workload contains more than 20\% write operations, the unsorted scheme outperforms the sorted scheme. The margin is more pronounced for higher write percentages.
 
+\subsection{Out-of-Memory Skiplist}
+CUDA Unified Virtual Memory(UVM) can be used to allocated more memory than the physical memory of the GPU, where pages are migrated to and from the CPU's RAM as needed. This allows us to use GFSL for out-of-memory applications. However the page faults at runtime, heavily degrade the performance. From our limited experiments, we found out that the insert runtime increases to 50s from a couple of milliseconds for 50M operations.
+
+\section{Future Work}
+\begin{itemize}
+    \item Implementing a more efficient out-of-memory scheme.
+    \item Using the unsorted Chunk scheme dynamically based on the type of workload(read or write heavy).
+    \item Implementing a version where only the data layer chunks are unsorted and the index layer remain sorted, as the index layer has fewer writes but more reads.
+    \item Allowing configurable team size using co-operative groups.
+    \item Implementing a version with a different Chunk structure, where all keys are contiguous, allowing for only one memory transaction instead of two for most search operations. 
+\end{itemize}
 
 % References
 \bibliographystyle{plainnat}
