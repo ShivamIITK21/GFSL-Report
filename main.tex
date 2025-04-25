@@ -1,0 +1,83 @@
+\documentclass[12pt,a4paper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{xcolor}
+
+% Page layout
+\geometry{a4paper, margin=1in}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\thepage}
+\lhead{\leftmark}
+
+% Title formatting
+\titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
+
+% Colors
+\definecolor{titlecolor}{RGB}{0, 51, 102}
+
+% Title page
+\title{\color{titlecolor}\Huge GFSL-A GPU Friendly Skiplist}
+\author{Deven Anil Gangwani(210327) \and Shivam Sharma(210983)}
+\date{\today}
+
+\begin{document}
+
+% Title page
+\maketitle
+\thispagestyle{empty}
+\newpage
+
+% Abstract
+\begin{abstract}
+    \noindent
+    The GPU-friendly skiplist is a probabilistic data structure that uses warp-coalesced operations to reduce memory accesses and divergence between threads. In this presentation, we go over the details of the data structure, including various implementational aspects and insights and performance variations compared to a naive skiplist implementation. We go on to discuss various improvements made to the data structure, their impact, and future work to optimize the data structure further, and particularly for out-of-memory applications.
+\end{abstract}
+
+% Table of Contents
+\tableofcontents
+\newpage
+
+% Main content
+\section{Introduction}
+\subsection{Background}
+Write your background information here.
+
+\subsection{Objectives}
+\begin{itemize}
+    \item Objective 1
+    \item Objective 2
+    \item Objective 3
+\end{itemize}
+
+\section{Methodology}
+Describe your methodology here.
+
+\section{Results}
+Present your results here.
+
+\section{Discussion}
+Discuss your findings here.
+
+\section{Conclusion}
+Summarize your work and findings here.
+
+% References
+\section*{References}
+\begin{enumerate}
+    \item Reference 1
+    \item Reference 2
+\end{enumerate}
+
+\end{document} 
